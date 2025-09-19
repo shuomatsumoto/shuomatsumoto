@@ -112,42 +112,22 @@ footer {
   margin-top: 80px;
 }
 
-/* 既存スタイルの下に追加 */
+.main-visual {
+  display: flex;
+  flex-wrap: wrap;       /* 画面が狭いと自動で折り返す */
+  justify-content: flex-start;
+  gap: 20px;
+  margin-bottom: 40px;
+}
 
-@media screen and (max-width: 768px) {
-  .main-visual {
-    flex-direction: column; /* 縦並びに変更 */
-    align-items: center;    /* 中央揃え */
-  }
+.main-visual img {
+  width: 100%;           /* 横幅100%を基本に */
+  max-width: 300px;      /* 最大幅を300pxに制限 */
+  height: 300px;
+  object-fit: cover;
+}
 
-  .main-visual img {
-    width: 80%;  /* 画面幅の80%に調整 */
-    height: auto; /* 高さは自動 */
-  }
-
-  section {
-    padding: 0 5%; /* 横の余白を少し減らす */
-  }
-
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav {
-    margin-top: 10px;
-  }
-
-  nav a {
-    display: inline-block;
-    margin: 5px 10px 5px 0;
-  }
-
-  section h2 {
-    font-size: 1.4rem;
-  }
-
-  section h3 {
-    font-size: 1.1rem;
-  }
+/* profile2だけ下に切り取り */
+.main-visual img:nth-child(2) {
+  object-position: center bottom;
 }
