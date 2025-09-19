@@ -47,20 +47,29 @@ nav a:hover {
 /* プロフィール写真 */
 .main-visual {
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;           /* 幅が足りないと折り返す */
   gap: 20px;
+  justify-content: flex-start;
   margin-bottom: 40px;
 }
 
-.main-visual img {
-  width: 300px;
+.profile-img {
+  width: 100%;               /* 小さい画面では幅いっぱい */
+  max-width: 300px;          /* デスクトップでは最大300px */
   height: 300px;
-  object-fit: cover;
+  object-fit: cover;          /* 歪まない */
 }
 
 /* profile2だけ下に切り取り */
-.main-visual img:nth-child(2) {
-  object-position: center bottom; /* 下寄せで表示 */
+.profile2 {
+  object-position: center bottom;
+}
+
+/* メディアクエリでスマホ用にさらに小さく */
+@media (max-width: 480px) {
+  .profile-img {
+    height: 200px;
+  }
 }
 
 
