@@ -102,49 +102,45 @@ section h3 {
   gap: 20px;
 }
 
-/* 各作品のボックス */
 .work-item {
   display: flex;
   flex-direction: column;
   width: 100%;
   text-align: center;
-  height: 380px;       /* 画像＋タイトル＋説明文の合計高さを固定 */
-  overflow: hidden;     /* はみ出した部分は隠す */
+  height: 400px; /* 画像＋タイトル＋説明文の合計高さを固定 */
 }
 
-/* 画像部分 */
 .work-item img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  object-position: center center; /* 中央を基準にトリミング */
-  border: 1px solid #ccc;
+  height: 200px;        /* 画像高さ固定 */
+  object-fit: cover;    /* 枠いっぱいにトリミング */
   margin-bottom: 8px;
+  border: 1px solid #ccc;
 }
 
-/* タイトル */
 .work-item h3 {
   font-size: 1rem;
   margin: 4px 0;
-  height: 24px;          /* 高さ固定 */
-  line-height: 1.2em;
-  overflow: hidden;
 }
 
-/* 説明文 */
 .work-item p {
   font-size: 0.85rem;
   margin: 0;
-  line-height: 1.2em;
-  height: 88px;          /* 高さ固定 */
-  overflow: hidden;
+  flex-grow: 1;           /* 残りの高さを占有して下揃えを防ぐ */
 }
 
 /* スマホ対応 */
-@media (min-width: 900px) {
+@media (max-width: 480px) {
+  .works-list {
+    grid-template-columns: 1fr; /* 1列に折り返す */
+  }
+
+  .work-item {
+    height: auto;             /* 高さ固定を解除して縦に並べる */
+  }
+
   .work-item img {
-    height: auto;       /* 大きい画面では高さ自動 */
-    object-fit: contain;
+    height: 150px;
   }
 }
 
