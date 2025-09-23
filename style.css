@@ -111,9 +111,9 @@ section h3 {
 
 .work-item img,
 .work-item video {
-  width: 100%;        /* 親列に収まる */
-  height: auto;       /* 縦横比維持 */
-  object-fit: cover;
+  width: 100%;         /* 親列に合わせる */
+  height: 200px;       /* 高さを固定 */
+  object-fit: cover;    /* 枠いっぱいに収めて縦横比を維持、必要ならトリミング */
   display: block;
   border: 1px solid #ccc;
   margin-bottom: 8px;
@@ -128,8 +128,9 @@ section h3 {
 
 /* スマホ対応 */
 @media (max-width: 480px) {
-  .works-list {
-    grid-template-columns: 1fr; /* 1列に折り返す */
+  .work-item img,
+  .work-item video {
+    height: 150px;   /* 小さい画面では少し縮小 */
   }
 }
 
