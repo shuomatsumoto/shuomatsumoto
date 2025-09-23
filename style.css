@@ -96,45 +96,51 @@ section h3 {
 }
 
 /* 作品リスト（worksページ）の統一 */
+/* 作品リストを横2列に固定 */
 .works-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr); /* 横2列 */
   gap: 20px;
-  justify-items: center;  /* セルの中央に配置 */
+  justify-items: center;
 }
 
+/* 作品アイテム */
 .work-item {
   text-align: center;
   width: 100%;
-  max-width: 250px;       /* セルの最大幅 */
+  max-width: 180px;      /* 画像・テキスト全体の最大幅を小さく */
 }
 
 .work-item img,
 .work-item video {
-  width: 100%;             /* 親要素に収まる */
-  height: 200px;           /* 高さを統一 */
-  object-fit: cover;       /* 枠いっぱいに表示、歪まずトリミング */
+  width: 100%;           /* 親要素に合わせる */
+  height: 150px;         /* 高さを小さく */
+  object-fit: cover;     /* 縦横比を保って枠いっぱいに */
   display: block;
   border: 1px solid #ccc;
   margin-bottom: 10px;
 }
 
 .work-item h3 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: normal;
   margin: 5px 0;
 }
 
 .work-item p {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: #555;
 }
 
-/* スマホ対応 */
+/* スマホ対応（480px以下は1列に） */
 @media (max-width: 480px) {
+  .works-list {
+    grid-template-columns: 1fr; /* 1列に折り返す */
+  }
+
   .work-item img,
   .work-item video {
-    height: 150px; /* 小さい画面では高さを少し縮小 */
+    height: 120px;
   }
 }
 
