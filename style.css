@@ -107,13 +107,14 @@ section h3 {
   flex-direction: column;
   width: 100%;
   text-align: center;
-  height: 400px; /* 画像＋タイトル＋説明文の合計高さを固定 */
+  height: 350px;          /* 画像＋テキストの合計高さを固定 */
+  overflow: hidden;        /* はみ出た部分は非表示 */
 }
 
 .work-item img {
   width: 100%;
-  height: 200px;        /* 画像高さ固定 */
-  object-fit: cover;    /* 枠いっぱいにトリミング */
+  height: 200px;           /* 画像の高さ固定 */
+  object-fit: cover;       /* 枠いっぱいに収める */
   margin-bottom: 8px;
   border: 1px solid #ccc;
 }
@@ -121,26 +122,35 @@ section h3 {
 .work-item h3 {
   font-size: 1rem;
   margin: 4px 0;
+  height: 24px;             /* タイトル部分の高さ固定 */
+  line-height: 1.2em;
+  overflow: hidden;
 }
 
 .work-item p {
   font-size: 0.85rem;
   margin: 0;
-  flex-grow: 1;           /* 残りの高さを占有して下揃えを防ぐ */
+  line-height: 1.2em;
+  height: 88px;             /* 説明文部分の高さを固定 */
+  overflow: hidden;         /* はみ出したテキストは隠す */
 }
 
 /* スマホ対応 */
 @media (max-width: 480px) {
   .works-list {
-    grid-template-columns: 1fr; /* 1列に折り返す */
+    grid-template-columns: 1fr;
   }
 
   .work-item {
-    height: auto;             /* 高さ固定を解除して縦に並べる */
+    height: auto;           /* 高さ固定解除 */
   }
 
   .work-item img {
     height: 150px;
+  }
+
+  .work-item p {
+    height: auto;
   }
 }
 
