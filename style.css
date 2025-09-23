@@ -95,27 +95,47 @@ section h3 {
   margin-bottom: 5px;
 }
 
-/* 作品リスト */
-/* 作品画像の統一 */
-.works-list img {
-  width: 100%;       /* 親要素の幅に合わせる */
-  max-width: 250px;  /* 最大幅を250pxに制限 */
-  height: auto;      /* 縦横比は維持 */
-  display: block;
-  margin: 0 auto;    /* 中央寄せ */
-  border: 1px solid #ccc;
+/* 作品リスト（worksページ）の統一 */
+.works-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;  /* セルの中央に配置 */
 }
-
 
 .work-item {
   text-align: center;
+  width: 100%;
+  max-width: 250px;       /* セルの最大幅 */
 }
 
 .work-item img,
 .work-item video {
-  width: 100%;
-  height: auto;
+  width: 100%;             /* 親要素に収まる */
+  height: 200px;           /* 高さを統一 */
+  object-fit: cover;       /* 枠いっぱいに表示、歪まずトリミング */
+  display: block;
   border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.work-item h3 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin: 5px 0;
+}
+
+.work-item p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* スマホ対応 */
+@media (max-width: 480px) {
+  .work-item img,
+  .work-item video {
+    height: 150px; /* 小さい画面では高さを少し縮小 */
+  }
 }
 
 /* フッター */
