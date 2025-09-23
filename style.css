@@ -98,20 +98,21 @@ section h3 {
 /* 作品リスト */
 .works-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 横2列固定 */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 横2列固定 */
   gap: 20px;
-  justify-items: center;
 }
 
 .work-item {
-  width: 100%;
-  text-align: center;
+  display: flex;
+  flex-direction: column; /* 画像とテキストを縦に並べる */
+  align-items: center;
 }
 
-.work-item img {
-  width: 100%;         /* 親ボックスに収まるよう柔軟 */
-  height: auto;        /* 縦横比を維持 */
-  object-fit: cover;   /* 必要に応じてトリミング */
+.work-item img,
+.work-item video {
+  width: 100%;        /* 親要素（列）に収まる */
+  height: auto;       /* 縦横比維持 */
+  object-fit: cover;  /* 枠いっぱいに表示 */
   display: block;
   border: 1px solid #ccc;
   margin-bottom: 10px;
@@ -119,7 +120,8 @@ section h3 {
 
 .work-item h3,
 .work-item p {
-  width: 100%;         /* 画像に合わせて横幅を揃える */
+  width: 100%;       /* 画像の横幅に合わせる */
+  text-align: center;
   margin: 5px 0;
 }
 
