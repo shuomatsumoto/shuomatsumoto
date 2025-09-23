@@ -95,27 +95,28 @@ section h3 {
   margin-bottom: 5px;
 }
 
-/* 作品リスト（worksページ）の統一 */
-/* 作品リストを横2列に固定 */
+/* 作品リスト */
 .works-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 横2列 */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
-  justify-items: center;
+  justify-items: center; /* セルを中央揃え */
 }
 
-/* 作品アイテム */
 .work-item {
-  text-align: center;
   width: 100%;
-  max-width: 180px;      /* 画像・テキスト全体の最大幅を小さく */
+  max-width: 180px;     /* ボックスの最大幅 */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .work-item img,
 .work-item video {
-  width: 100%;           /* 親要素に合わせる */
-  height: 150px;         /* 高さを小さく */
-  object-fit: cover;     /* 縦横比を保って枠いっぱいに */
+  width: 100%;          /* ボックスに合わせる */
+  height: 150px;
+  object-fit: cover;
   display: block;
   border: 1px solid #ccc;
   margin-bottom: 10px;
@@ -125,14 +126,16 @@ section h3 {
   font-size: 1rem;
   font-weight: normal;
   margin: 5px 0;
+  width: 100%;          /* 画像と同じ横幅 */
 }
 
 .work-item p {
   font-size: 0.85rem;
   color: #555;
+  width: 100%;          /* 画像と同じ横幅 */
 }
 
-/* スマホ対応（480px以下は1列に） */
+/* スマホ対応 */
 @media (max-width: 480px) {
   .works-list {
     grid-template-columns: 1fr; /* 1列に折り返す */
