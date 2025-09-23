@@ -96,11 +96,16 @@ section h3 {
 }
 
 /* 作品リスト */
-.works-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+/* 作品画像の統一 */
+.works-list img {
+  width: 100%;       /* 親要素の幅に合わせる */
+  max-width: 250px;  /* 最大幅を250pxに制限 */
+  height: auto;      /* 縦横比は維持 */
+  display: block;
+  margin: 0 auto;    /* 中央寄せ */
+  border: 1px solid #ccc;
 }
+
 
 .work-item {
   text-align: center;
