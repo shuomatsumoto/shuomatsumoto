@@ -113,13 +113,13 @@ section h3 {
 }
 
 /* 画像部分 */
-.work-item img,
-.work-item video {
+.work-item img {
   width: 100%;
-  height: 200px;        /* 高さ固定 */
-  object-fit: cover;    /* 枠いっぱいに表示、縦横比保持 */
-  margin-bottom: 8px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center center; /* 中央を基準にトリミング */
   border: 1px solid #ccc;
+  margin-bottom: 8px;
 }
 
 /* タイトル */
@@ -141,21 +141,10 @@ section h3 {
 }
 
 /* スマホ対応 */
-@media (max-width: 480px) {
-  .works-list {
-    grid-template-columns: 1fr; /* 1列に折り返す */
-  }
-
-  .work-item {
-    height: auto;             /* 高さ固定解除 */
-  }
-
+@media (min-width: 900px) {
   .work-item img {
-    height: 150px;
-  }
-
-  .work-item p {
-    height: auto;
+    height: auto;       /* 大きい画面では高さ自動 */
+    object-fit: contain;
   }
 }
 
