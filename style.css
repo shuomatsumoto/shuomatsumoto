@@ -98,31 +98,32 @@ section h3 {
 /* 作品リスト */
 .works-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 横2列固定 */
+  grid-template-columns: repeat(2, 1fr); /* 横2列固定 */
   gap: 20px;
 }
 
 .work-item {
   display: flex;
-  flex-direction: column; /* 画像とテキストを縦に並べる */
+  flex-direction: column; /* 画像・タイトル・説明を縦に並べる */
   align-items: center;
+  width: 100%;            /* 列幅いっぱいに広げる */
 }
 
 .work-item img,
 .work-item video {
-  width: 100%;        /* 親要素（列）に収まる */
+  width: 100%;        /* 親列に収まる */
   height: auto;       /* 縦横比維持 */
-  object-fit: cover;  /* 枠いっぱいに表示 */
+  object-fit: cover;
   display: block;
   border: 1px solid #ccc;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .work-item h3,
 .work-item p {
-  width: 100%;       /* 画像の横幅に合わせる */
+  width: 100%;        /* 画像と同じ横幅 */
   text-align: center;
-  margin: 5px 0;
+  margin: 4px 0;
 }
 
 /* スマホ対応 */
